@@ -2,24 +2,22 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('pro4.jpg') ;
+    background: url('pro4.jpg');
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-
 .login-box {
     width: 285px;
     padding: 40px;
     position: relative;
-    background: grey;
+    background: #edf2f4;
     text-align: center;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-
 
 .login-box h2 {
     margin: 0 0 20px;
@@ -28,13 +26,11 @@ body {
     font-size: 22px;
 }
 
-
 .textbox {
     position: relative;
     margin-bottom: 30px;
     justify-content: center;
 }
-
 
 .textbox input {
     width: 90%;
@@ -45,6 +41,17 @@ body {
     font-size: 16px;
 }
 
+.remember-me {
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.remember-me input {
+    margin-right: 10px;
+}
 
 .btn {
     width: 100%;
@@ -52,4 +59,20 @@ body {
     border: none;
     padding: 10px;
     cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+.signup-link {
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: blue;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }
