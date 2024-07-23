@@ -7,7 +7,7 @@ export const Banner = () => {
   return (
     <div className='Banner'>
         <div className='bannerimg'>
-        <img src={banner} alt="" />
+        <img src={banner} alt="" style={{width: 2500}}/>
         </div>
         <div className='sign'> 
             <h2>BUY & SELL</h2>
