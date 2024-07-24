@@ -1,42 +1,38 @@
 import React from 'react'
 import './CSS/Loginsignup.css'
 import {useState} from 'react'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
+import {Link, useNavigate} from 'react-router-dom'
+import {useUser} from '../Context/UserContext'
 
 export const Loginsignup = (props) => {
-  const [email, setEmail]= useState('')
-  const [username, setUsername] = useState('')
-  const [password, setPassword]= useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const {login} = useUser()
+  const navigate = useNavigate()
   
+  const logInUser = () =>{
+    const adminCredentials = {
+      email: "admin@admin.com",
+      password: "admin",
+      profile:{name: "Admin", email: "admin@admin.com"},
+    }
+    const guestCredentials = {
+      email: "guest@gmail.com",
+      password: "123456",
+      profile:{name: "Guest User", email: "guest@gmail.com"},
+    }
+    if (email === adminCredentials.email && password === adminCredentials.password) {
+      login('admin', adminCredentials.profile);
+      navigate('/admin');
+    } else if (email === guestCredentials.email && password === guestCredentials.password) {
+      login('guest', guestCredentials.profile);
+      navigate('/guest');
+    } else {
+      alert('Login failed: Incorrect email or password');
+    }
+  }
 
-  const logInUser = async ()=>
-  {
-    if(email.length === 0){
-      alert("Invalid Email")
-    }
-    else if(password.length === 0){
-      alert("Invalid Password")
-    }
-    else {
-      axios.post("http://127.0.0.1:5000/login", {
-        email: email,
-        username: username,
-        password: password,
-      })
-      .then(function(response){
-        console.log(response)
-        window.location.href = "/";
-      })
-      .catch(function(error){
-        console.log(error, "error")
-        if(error.response.status === 401){
-          alert("Invalid Email or Password")
-        }
-    })
-    }
-}
-
+ 
   return (
     <div className='login'>
       <div className="login-box">
@@ -53,7 +49,7 @@ export const Loginsignup = (props) => {
     </div>
     <button type="button" className="btn" onClick={logInUser}>Login</button>
         </div>
-      <div className="login-link">
+      <div className="signuplink">
             <Link to='/signup'>New Customer?</Link>
         </div>
 

@@ -1,61 +1,63 @@
-import React, { useContext } from 'react'
-import './CartItems.css'
-import {ShopContext} from '../../Context/ShopContext'
-import removeicon from '../Assets/removeicon.png'
-
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import './CartItems.css';
+import { ShopContext } from '../../Context/ShopContext';
+import removeicon from '../Assets/removeicon.png';
 
 export const CartItems = () => {
-    const {getTotalCartAmount, all_knifes, cartItems, removeFromCart} = useContext(ShopContext);
+  const { getTotalCartAmount, all_knifes, cartItems, removeFromCart, addToCart } = useContext(ShopContext);
+  const totalAmount = getTotalCartAmount();
+
   return (
-    <div className='cartitems'>
-        <div className="cartitems-format-main">
-            <p>Products</p>
-            <p>Title</p>
-            <p>Price</p>
-            <p>Quantity</p>
-            <p>Total</p>
-            <p>Remove</p>
-        </div>
-        <hr />
-        {all_knifes.map((e)=>{
-            if(cartItems[e.id] > 0)
-            {
-                return <div>
-                    <div className="cartitems-format">
-                        <img src={e.image} alt='' className='carticon-product-icon'/>
-                        <p>{e.name}</p>
-                        <p>${e.knife_price}</p>
-                        <button className='cartitems-quantity'> {cartItems[e.id]} </button>
-                        <p>${e.knife_price*cartItems[e.id]}</p>
-                        <img src={removeicon} width='30' height='30' className='cartitems-remove-icon' onClick={()=> {removeFromCart()}}   alt="" />
+    <div className="cart-container">
+      <h1 className="cart-title">Shopping Cart</h1>
+      <div className="cart-content">
+        <div className="cart-items">
+          {all_knifes.map((e) => {
+            if (cartItems[e.id] > 0) {
+              return (
+                <div key={e.id} className="cart-item">
+                  <img src={e.image} alt="" className="cart-item-image" />
+                  <div className="cart-item-details">
+                    <h2 className="cart-item-title">{e.name}</h2>
+                    <p className="cart-item-price">${e.knife_price}</p>
+                    <div className="cart-item-quantity">
+                      <button className="quantity-btn" onClick={() => removeFromCart(e.id)}>-</button>
+                      <input type="text" value={cartItems[e.id]} readOnly className="quantity-input" />
+                      <button className="quantity-btn" onClick={() => addToCart(e.id)}>+</button>
                     </div>
-                    <hr />
-             </div>
+                  </div>
+                  <div className="cart-item-total">
+                    <p>${e.knife_price * cartItems[e.id]}</p>
+                    <button className="remove-btn" onClick={() => removeFromCart(e.id)}>
+                      <img src={removeicon} alt="Remove" style={{height:20, width:20}} />
+                    </button>
+                  </div>
+                </div>
+              );
             }
             return null;
-        })}
-        <div className="cartitems-total">
-                <h1>Cart Totals</h1>
-            <div>
-                <div className='cartitems-total-item'>
-                    <p>Subtotal</p>
-                    <p>${getTotalCartAmount}</p>
-                </div>
-                <hr />
-                <div className="cartitems-total-item">
-                    <p>Processing Fee</p>
-                    <p>Free</p>
-                </div>
-                <hr />
-                <div className="cartitems-total-item">
-                    <h3>Total</h3>
-                    <h3>${getTotalCartAmount}</h3>
-                </div>
-            </div>
-            <button>Proceed To Checkout</button>
+          })}
         </div>
+        <div className="cart-summary">
+          <h2>Summary</h2>
+          <div className="summary-item">
+            <p>Subtotal</p>
+            <p>${totalAmount}</p>
+          </div>
+          <div className="summary-item">
+            <p>Shipping</p>
+            <p>Free</p>
+          </div>
+          <div className="summary-item total">
+            <p>Total</p>
+            <p>${totalAmount}</p>
+          </div>
+          <Link to="/checkout"> <button className="checkout-btn">Proceed to Checkout</button> </Link>
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CartItems
+export default CartItems;

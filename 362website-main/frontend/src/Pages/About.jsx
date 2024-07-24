@@ -1,5 +1,5 @@
 import React from 'react'
-import './CSS/about.css';
+import './CSS/About.css'
 import Image from '../Components/Assets/cs2banner.png'
 
 export const About = () => {

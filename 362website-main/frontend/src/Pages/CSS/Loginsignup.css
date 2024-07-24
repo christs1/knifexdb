@@ -1,13 +1,4 @@
-.body {
-    margin: 0;
-    padding: 0;
-    background: url('loginimg.jpg');
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-    .login-box {
+.login-box {
         width: 285px;
         padding: 40px;
         position: relative;
@@ -16,8 +7,8 @@
         box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
         border-radius: 10px;
         margin-left: 600px;
-        margin-top: 150px;
-    }
+        margin-top: 125px;
+}
     
     .login-box h2 {
         margin: 0 0 20px;
@@ -63,16 +54,11 @@
         font-size: 16px;
     }
     
-    .signup-link {
-        margin-top: 20px;
-    }
-    
-    .signup-link a {
+    .signuplink {
+        position: relative;
         color: blue;
         text-decoration: none;
         font-size: 14px;
-    }
-    
-    .signup-link a:hover {
-        text-decoration: underline;
+        margin-left: 825px;
+        margin-top: -115px;
     }

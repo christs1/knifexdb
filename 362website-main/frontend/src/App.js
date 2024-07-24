@@ -1,6 +1,6 @@
 
 import Navbar from './Components/Navbar/Navbar';
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
 import Cart from './Pages/Cart';
@@ -14,12 +14,18 @@ import bayonetbanner from './Components/Assets/Banners/bayonetbanner.png';
 import bowiebanner from './Components/Assets/Banners/bowieknifebanner.png';
 import Signup from './Pages/Signup';
 import SearchedKnives from './Pages/searchedknives';
+import { UserProvider, useUser } from './Context/UserContext';
+import GuestProfile from './Pages/GuestProfile';
+import AdminProfile from './Pages/AdminProfile';
+import Checkout from './Pages/Checkout';
+import Confirmation from './Pages/Confirmation';
 
 function App() {
   return (
     <div>
       <BrowserRouter> 
       <Navbar />
+      <UserProvider>
       <Routes>
         <Route path='/' element={<Shop/>}/>
         <Route path='/knives' element={<Knives/>}/>
@@ -50,14 +56,48 @@ function App() {
           <Route path=':productId' element={<Product/>}/>
         </Route>
         <Route path='/cart' element={<Cart/>}/>
-        <Route path='/login' element={<Loginsignup/>}/>
+        <Route path='/checkout' element={<Checkout />}/>
+        <Route path='/confirmation' element={<Confirmation/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path="/search" element={<SearchedKnives />} />
+
+        
+            <Route path="/admin" component={AdminRoute} element={<AdminProfile/>}/>
+            <Route path="/guest" component={GuestRoute} element={<GuestProfile/>}/>
+            <Route path="login" component={Loginsignup} element={<Loginsignup/>}/>
       </Routes>
       <Footer/>
+      </UserProvider>
       </BrowserRouter>
     </div>
   );
 }
+const AdminRoute = () => {
+  const { user } = useUser();
+
+  if (!user) {
+    return <Link to="/" />;
+  }
+
+  if (user.role !== 'admin') {
+    return <Link to="/admin" />;
+  }
+
+  return <AdminProfile />;
+};
+
+const GuestRoute = () => {
+  const { user } = useUser();
+
+  if (!user) {
+    return <Link to="/" />;
+  }
+
+  if (user.role !== 'guest') {
+    return <Link to="guest" />;
+  }
+
+  return <GuestProfile />;
+};
 
 export default App;
