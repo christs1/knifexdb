@@ -26,7 +26,9 @@ const Navbar = () => {
 
     const handleSearchSubmit = (e) => {
         e.preventDefault();
-        navigate(`/search?query=${searchQuery}`);
+        if (searchQuery.trim()) {
+            navigate(`/knives?query=${encodeURIComponent(searchQuery.trim())}`);
+        }
     };
 
     return (
