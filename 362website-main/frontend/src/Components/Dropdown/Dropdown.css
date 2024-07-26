@@ -8,6 +8,7 @@
     text-align: start;
     z-index: 1;
     background: #242424;
+    margin-left: -225px;
 }
 .dropdown-menu li {
     background: #242424;
