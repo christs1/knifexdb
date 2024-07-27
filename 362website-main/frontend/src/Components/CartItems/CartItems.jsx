@@ -1,12 +1,26 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import './CartItems.css';
-import { ShopContext } from '../../Context/ShopContext';
-import removeicon from '../Assets/removeicon.png';
+import React, { useContext } from 'react'
+import { useNavigate} from 'react-router-dom'
+import './CartItems.css'
+import { ShopContext } from '../../Context/ShopContext'
+import removeicon from '../Assets/removeicon.png'
+import {useUser} from '../../Context/UserContext'
 
 export const CartItems = () => {
-  const { getTotalCartAmount, all_knifes, cartItems, removeFromCart, addToCart } = useContext(ShopContext);
-  const totalAmount = getTotalCartAmount();
+  const { getTotalCartAmount, all_knifes, cartItems, removeFromCart, addToCart } = useContext(ShopContext)
+  const {user} = useUser()
+  const navigate = useNavigate()
+  const totalAmount = getTotalCartAmount()
+  const fee = totalAmount * 0.05
+
+  const handleCheckout = () => {
+    if (user){
+      navigate('/checkout')
+    }
+    else {
+      alert("Please log in to proceed")
+      navigate('/login')
+    }
+  }
 
   return (
     <div className="cart-container">
@@ -46,15 +60,15 @@ export const CartItems = () => {
             <p>${totalAmount}</p>
           </div>
           <div className="summary-item">
-            <p>Shipping</p>
-            <p>Free</p>
+            <p>KnifeX Fee(5%)</p>
+            <p>${fee}</p>
           </div>
           <div className="summary-item total">
             <p>Total</p>
-            <p>${totalAmount}</p>
+            <p>${totalAmount+fee}</p>
           </div>
           {totalAmount > 0 ? (
-          <Link to="/checkout"> <button className="checkout-btn">Proceed to Checkout</button> </Link>)
+           <button onClick={handleCheckout}className="checkout-btn">Proceed to Checkout</button>)
           :
           (<button className="checkout-btn" disabled>Proceed to Checkout</button>)}
         </div>

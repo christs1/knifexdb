@@ -32,9 +32,10 @@ const ShopContextProvider =(props)=>{
         })
     }
     const getTotalCartAmount = () =>{
-         return all_knifes.reduce((total, knife) => {
+         const totalAmount = all_knifes.reduce((total, knife) => {
           return total + (cartItems[knife.id] || 0) * knife.knife_price;
         }, 0)
+        return totalAmount
     }
 
     const getTotalCartItems = () =>{
