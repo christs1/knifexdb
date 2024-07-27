@@ -7,7 +7,6 @@ export const Shop = () => {
   return (
     <div>
       <Banner/>
-      <Trending/>
     </div>
   )
 }

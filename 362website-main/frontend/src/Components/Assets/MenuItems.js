@@ -18,129 +18,29 @@ import stilettoknife from './Dropdown/stilettoknife.png'
 import survivalknife from './Dropdown/survivalknife.png'
 import talonknife from './Dropdown/talonknife.png'
 import ursusknife from './Dropdown/ursusknife.png'
+// Add other imports...
 
 export const MenuItems = [
-    {
-        title: 'Bayonet',
-        image: bayonet,
-        path: './bayonet',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Bowie Knife',
-        image: bowieknife,
-        path: './bowieknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Butterfly Knife',
-        image: butterflyknife,
-        path: './butterflyknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Classic Knife',
-        image: classicknife,
-        path: './classicknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Falchion Knife',
-        image: falchionknifet,
-        path: '.falchionknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Flip Knife',
-        image: flipknife,
-        path: './flipknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Gut Knife',
-        image: gutknife,
-        path: './gutknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Huntsman Knife',
-        image: huntsmanknife, 
-        path: './huntsmanknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Karambit',
-        image: karambit, 
-        path: './karambit',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Kukri Knife',
-        image: kukriknife, 
-        path: './kukriknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'M9 Bayonet',
-        image: m9bayonet, 
-        path: '/m9bayonet',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Navaja Knife',
-        image: navajaknife, 
-        path: './navajaknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Nomad Knife',
-        image: nomadknife, 
-        path: './nomadknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Paracord Knife',
-        image: paracordknife,
-        path: './paracordknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Shadow Daggers',
-        image: shadowdaggers, 
-        path: './shadowdaggers',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Skeleton Knife',
-        image: skeletonknife,
-        path: './skeletonknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Stiletto Knife',
-        image: stilettoknife,
-        path: './stilettoknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Survival Knife',
-        image: survivalknife,
-        path: './survivalknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Talon Knife',
-        image: talonknife,
-        path: './talonknife',
-        cName: 'dropdown-link'
-    },
-    {
-        title: 'Ursus Knife',
-        image: ursusknife,
-        path: './ursusknife',
-        cName: 'dropdown-link'
-    },
-
-
+    { title: 'Bayonet', path: '/knives?category=Bayonet', image: bayonet },
+    { title: 'Bowie Knife', path: '/knives?category=BowieKnife', image: bowieknife },
+    { title: 'Butterfly Knife', path: '/knives?category=ButterflyKnife', image: butterflyknife },
+    { title: 'Classic Knife', path: '/knives?category=ClassicKnife', image: classicknife},
+    { title: 'Falchion Knife', path: '/knives?category=FalchionKnife', image: falchionknifet},
+    { title: 'Flip Knife', path: '/knives?category=FlipKnife', image: flipknife},
+    { title: 'Gut Knife', path: '/knives?category=GutKnife', image: gutknife},
+    { title: 'Hunstman Knife', path: '/knives?category=HuntsmanKnife', image: huntsmanknife},
+    { title: 'Karambit', path: '/knives?category=Karambit', image: karambit},
+    { title: 'Kukri Knife', path: '/knives?category=KukriKnife', image: kukriknife},
+    { title: 'M9 Bayonet', path: '/knives?category=M9Bayonet', image: m9bayonet},
+    { title: 'Navaja Knife', path: '/knives?category=NavajaKnife', image: navajaknife},
+    { title: 'Nomad Knife', path: '/knives?category=NomadKnife', image: nomadknife},
+    { title: 'Paracord Knife', path: '/knives?category=ParacordKnife', image: paracordknife},
+    { title: 'Shadow Daggers', path: '/knives?category=ShadowDaggers', image: shadowdaggers},
+    { title: 'Skeleton Knife', path: '/knives?category=SkeletonKnife', image: skeletonknife},
+    { title: 'Stiletto Knife', path: '/knives?category=StilettoKnife', image: stilettoknife},
+    { title: 'Survival Knife', path: '/knives?category=SurvivalKnife', image: survivalknife},
+    { title: 'Talon Knife', path: '/knives?category=TalonKnife', image: talonknife},
+    { title: 'Ursus Knife', path: '/knives?category=UrsusKnife', image: ursusknife}
+    // Add other knife types following the same format...
 ]
 export default MenuItems

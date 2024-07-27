@@ -5,21 +5,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #333; /* Dark background for modern look */
 }
 
 .knives h1 {
     margin-bottom: 20px;
+    color: #fff; /* Ensure the heading stands out */
 }
 
-.search-bar {
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Space between filter elements */
     margin-bottom: 20px;
+}
+
+.search-bar, .filter-category, .price-filter {
     padding: 10px;
-    width: 50%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 200px; /* Ensures that inputs are not too wide */
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    outline: none;
     text-align: center;
+    background-color: #f7f7f7;
+    color: #000000;
+}
+
+.search-bar:focus, .filter-category:focus, .price-filter:focus {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.clear-filters {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff0000; /* Bright color for clear filters button */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.clear-filters:hover {
+    background-color: #cc0000;
 }
 
 .knife-grid {
@@ -33,15 +65,17 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
     max-width: 1700px;
-    margin-left: 130px;
+    padding: 0 50px;
+    margin-left: 100px;
 }
 
 .item {
     background-color: #444;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
     width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .item img {
@@ -68,9 +102,11 @@
     color: white;
     font-size: 16px;
     cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
 .pagination button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+    box-shadow: none;
 }

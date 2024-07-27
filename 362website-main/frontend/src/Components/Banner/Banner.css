@@ -1,64 +1,115 @@
+.banner-logo {
+  position: absolute;
+  top: 20px;  /* Adjust as needed */
+  left: 18%;
+  margin-top: -30px;
+  transform: translateX(-50%); /* Center the logo horizontally */
+  width: 500px; /* Adjust size as needed */
+  height: auto;
+  filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 2.0)); /* CSS shadow effect */
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+
 .banner {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-  }
-  
-  .banner-img-container {
-    position: relative;
-    width: 100%;
-  }
-  
-  .banner-img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .banner-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    margin-left: 400px;
-  }
-  
-  .banner-title {
-    font-size: 50px;
-    font-weight: 700;
-    margin: 0;
-  }
-  
-  .banner-subtitle {
-    font-size: 30px;
-    font-weight: 400;
-    margin: 10px 0;
-  }
-  
-  .banner-button-link {
-    text-decoration: none;
-  }
-  
-  .banner-button {
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    background-color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: black;
-  }
-  
-  .banner-button:hover {
-    background-color: #45a049;
-  }
-  
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.banner-img-container {
+  position: relative;
+  width: 100%;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 75%;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(161, 160, 160, 0.404);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+}
+
+.banner-title, .banner-subtitle {
+  font-size: 50px;
+  font-weight: 700;
+  margin: 10px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.banner-button-link {
+  text-decoration: none;
+}
+
+.banner-button {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  background-color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+}
+
+.banner-button:hover {
+  background-color: #45a049;
+}
+
+.account-actions {
+  position: absolute;
+  right: 230px;
+  top: 180px;
+  background: rgba(161, 160, 160, 0.404);
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.9);
+}
+
+.account-text {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.account-text:last-child {
+  margin-bottom: 0;
+}
+
+.account-button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.9);
+  transition: background-color 0.3s ease;
+}
+
+.account-button:hover {
+  background-color: darkred;
+}
+
+.account-button-link {
+  text-decoration: none;
+}

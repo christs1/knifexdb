@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './Navbar.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import logo from '../Assets/logo.png';
 import shopping_cart from '../Assets/shopping-cart.png';
 import Dropdown from '../Dropdown/Dropdown';
@@ -9,8 +9,6 @@ import {useUser} from '../../Context/UserContext';
 
 const Navbar = () => {
     const [dropdown, setDropdown] = useState(false);
-    const [searchQuery, setSearchQuery] = useState('');
-    const navigate = useNavigate();
     const {user, logout} = useUser()
 
     const onMouseEnter = () => {
@@ -22,16 +20,6 @@ const Navbar = () => {
 
     const { getTotalCartItems } = useContext(ShopContext);
 
-    const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value);
-    };
-
-    const handleSearchSubmit = (e) => {
-        e.preventDefault();
-        if (searchQuery.trim()) {
-            navigate(`/knives?query=${encodeURIComponent(searchQuery.trim())}`);
-        }
-    };
 
     return (
         <div className='navbar'>
@@ -55,17 +43,6 @@ const Navbar = () => {
                     <Link to='/about'>About</Link>
                 </li>
             </ul>
-            <div className="nav-search">
-                <form onSubmit={handleSearchSubmit}>
-                    <input
-                        type="text"
-                        value={searchQuery}
-                        onChange={handleSearchChange}
-                        placeholder="Search for knives..."
-                    />
-                    <button type="submit">Search</button>
-                </form>
-            </div>
             <div className="header-right">
                 {user ? (
                     <>

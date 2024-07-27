@@ -9,24 +9,29 @@ const ITEMS_PER_PAGE = 30;
 export const Knives = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
-  
+  const [filterCategory, setFilterCategory] = useState('');
+  const [minPrice, setMinPrice] = useState('');
+  const [maxPrice, setMaxPrice] = useState('');
+
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const query = searchParams.get('query');
+  const categoryFromURL = searchParams.get('category') || '';
 
   useEffect(() => {
-    if (query) {
-      setSearchQuery(query);
-    }
-  }, [query]);
+    setFilterCategory(categoryFromURL);
+  }, [categoryFromURL]);
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const endIndex = startIndex + ITEMS_PER_PAGE;
+  
   const filteredItems = all_knives.filter(knife =>
-    knife.name.toLowerCase().includes(searchQuery.toLowerCase())
+    (!searchQuery || knife.name.toLowerCase().includes(searchQuery.toLowerCase())) &&
+    (!filterCategory || knife.category.toLowerCase() === filterCategory.toLowerCase()) &&
+    (!minPrice || knife.knife_price >= parseFloat(minPrice)) &&
+    (!maxPrice || knife.knife_price <= parseFloat(maxPrice))
   );
-  const currentItems = filteredItems.slice(startIndex, endIndex);
 
+  const currentItems = filteredItems.slice(startIndex, endIndex);
   const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
 
   const handlePrevPage = () => {
@@ -41,16 +46,50 @@ export const Knives = () => {
     }
   };
 
+  const handleClearFilters = () => {
+    setSearchQuery('');
+    setFilterCategory('');
+    setMinPrice('');
+    setMaxPrice('');
+  };
+
   return (
     <div className='knives'>
       <h1>All Knives</h1>
-      <input
-        type="text"
-        placeholder="Search for Knives..."
-        className="search-bar"
-        value={searchQuery}
-        onChange={e => setSearchQuery(e.target.value)}
-      />
+      <div className="filter-container">
+        <input
+          type="text"
+          placeholder="Search for Knives..."
+          className="search-bar"
+          value={searchQuery}
+          onChange={e => setSearchQuery(e.target.value)}
+        />
+        <select
+          onChange={e => setFilterCategory(e.target.value)}
+          value={filterCategory}
+          className="filter-category"
+        >
+          <option value="">All Categories</option>
+          {Array.from(new Set(all_knives.map(knife => knife.category))).map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+        <input
+          type="number"
+          placeholder="Min Price"
+          className="price-filter"
+          value={minPrice}
+          onChange={e => setMinPrice(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Max Price"
+          className="price-filter"
+          value={maxPrice}
+          onChange={e => setMaxPrice(e.target.value)}
+        />
+        <button onClick={handleClearFilters} className="clear-filters">Clear Filters</button>
+      </div>
       <div className='knife-grid'>
         <div className='all-knives'>
           {currentItems.map((item, i) => (
