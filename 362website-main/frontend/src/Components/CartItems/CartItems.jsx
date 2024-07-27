@@ -53,7 +53,10 @@ export const CartItems = () => {
             <p>Total</p>
             <p>${totalAmount}</p>
           </div>
-          <Link to="/checkout"> <button className="checkout-btn">Proceed to Checkout</button> </Link>
+          {totalAmount > 0 ? (
+          <Link to="/checkout"> <button className="checkout-btn">Proceed to Checkout</button> </Link>)
+          :
+          (<button className="checkout-btn" disabled>Proceed to Checkout</button>)}
         </div>
       </div>
     </div>

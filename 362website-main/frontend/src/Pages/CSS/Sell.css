@@ -1,0 +1,71 @@
+.sell-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.inventory-grid, .selling-grid {
+    width: 80%;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #151515;
+    border-radius: 10px;
+    background-color: #333;
+    color: white;
+}
+
+.inventory-items, .selling-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.inventory-item, .selling-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 175px;
+    padding: 10px;
+    border: 1px solid #151515;
+    border-radius: 10px;
+    background-color: #333;
+}
+
+.inventory-item img, .selling-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.inventory-item p, .selling-item p {
+    margin: 10px 0;
+}
+
+.inventory-item button, .selling-item button {
+    padding: 5px 10px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inventory-item button:hover, .selling-item button:hover {
+    background-color: #ff6347;
+}
+
+.sell-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.sell-button:hover {
+    background-color: #218838;
+}

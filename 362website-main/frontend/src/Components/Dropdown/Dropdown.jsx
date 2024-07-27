@@ -12,9 +12,9 @@ export const Dropdown = () => {
         <ul onClick={handleClick} className={click ? 'dropdown-menu clicked' : 'dropdown-menu'}>
             {MenuItems.map((item, index) => {
                 return(
-                    <li key={index}>
-                        <Link style={{textDecoration: 'None', color:'white'}} className={item.cName} to={item.path} onClick={() => setClick(false)}>
-                        <img src={item.image} width='30'/>
+                    <li key={index} className='dropdown-item'>
+                        <Link className='dropdown-link'style={{textDecoration: 'None', color:'white'}} to={item.path} onClick={() => setClick(false)}>
+                        <img src={item.image} width='30' className='dropdown-icon' alt=""/>
                         {item.title}
                         </Link>
                     </li>

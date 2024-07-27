@@ -1,63 +1,121 @@
 .navbar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
     height: 90px;
-    justify-content: space-around;
-    padding: 5px;
+    background: #151515;
     position: sticky;
     top: 0;
-    background: #151515;
     z-index: 100;
+    color: white;
 }
-.nav-logo {
-    display: flex;
-    align-items: center;
-    margin-left: -100px;
+
+.nav-logo img {
+    width: 120px;
 }
+
 .nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 50px;
-    color: white;
-    font-size: 20px;
-    font-weight: 500;
-    text-decoration: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
+
 .nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.nav-menu li:hover a {
+    color: #ff4500;
+}
+
+.nav-search {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 3px;
+}
+
+.nav-search form {
+    display: flex;
+}
+
+.nav-search input {
+    height: 40px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+}
+
+.nav-search button {
+    height: 40px;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+    background: white;
+    color: black;
     cursor: pointer;
 }
-.nav-menu hr {
-    border: none;
-    width: 50%;
-    height: 2px;
-    border-radius: 10px;
-    background: black;
+
+.nav-search button:active {
+    background: #151515;
+    color: white;
 }
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-greeting {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+.user-greeting:hover {
+    color: #ff4500;
+}
+
+.logout-btn{
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.login-btn button{
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
 .nav-login-cart {
     display: flex;
     align-items: center;
     gap: 45px;
+    
 }
-.nav-login-cart button {
-    width: 80px;
-    height: 40px;
-    outline: none;
-    border: 1px solid white;
-    border-radius: 50px;
-    color: black;
-    font-size: 15px;
-    font-weight: 500;
-    background: white;
+
+.nav-login-cart img {
+    width: 30px;
     cursor: pointer;
 }
-.nav-login-cart button:active {
-    background: #151515;
-}
+
 .nav-cart-count {
     width: 15px;
     height: 15px;
@@ -71,45 +129,20 @@
     background: red;
     color: #151515;
 }
-.nav-menu Link {
-    color: black;
-}
-@media (max-width: 1280px) {
+
+@media (max-width: 768px) {
     .navbar {
-        padding: 12px 50px;
+        flex-direction: column;
+        align-items: flex-start;
     }
-    .nav-logo img {
-        width: 150px;
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
-    .nav-logo p {
-        font-size: 25px;
+
+    .nav-login-cart {
+        gap: 10px;
     }
-}
-.nav-search {
-    display: flex;
-    align-items: center;
-}
-.nav-search form {
-    display: flex;
-}
-.nav-search input {
-    height: 40px;
-    padding: 0 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px 0 0 20px;
-    outline: none;
-}
-.nav-search button {
-    height: 40px;
-    padding: 0 20px;
-    border: 1px solid #ccc;
-    border-left: none;
-    border-radius: 0 20px 20px 0;
-    background: white;
-    color: black;
-    cursor: pointer;
-}
-.nav-search button:active {
-    background: #151515;
-    color: white;
 }

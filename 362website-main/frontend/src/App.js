@@ -24,8 +24,9 @@ function App() {
   return (
     <div>
       <BrowserRouter> 
-      <Navbar />
       <UserProvider>
+      <Navbar />
+    
       <Routes>
         <Route path='/' element={<Shop/>}/>
         <Route path='/knives' element={<Knives/>}/>

@@ -1,8 +1,17 @@
 import React, { createContext, useState, useContext } from 'react'
+import {useNavigate } from 'react-router-dom'
+
+
+
 
 export const UserContext = createContext()
 
+export const useUser =() => {
+  return useContext(UserContext)
+}
+
 export const UserProvider = ({ children }) => {
+  const navigate = useNavigate()
   const [user, setUser] = useState(null)
 
   const login = (role, profile) => {
@@ -11,6 +20,7 @@ export const UserProvider = ({ children }) => {
 
   const logout = () => {
     setUser(null);
+    navigate("/")
   };
 
   return (
@@ -19,5 +29,3 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   )
 }
-
-export const useUser = () => useContext(UserContext)
