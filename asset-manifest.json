@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/knifexdb/static/css/main.1eeef87a.css",
-    "main.js": "/knifexdb/static/js/main.87f2a934.js",
+    "main.css": "/knifexdb/static/css/main.ec0c26c5.css",
+    "main.js": "/knifexdb/static/js/main.cc805ff1.js",
     "static/media/bayonetbanner.png": "/knifexdb/static/media/bayonetbanner.4aa57a09c7afd194bdfb.png",
     "static/media/bowieknifebanner.png": "/knifexdb/static/media/bowieknifebanner.55eb7fe08189674dd5a8.png",
     "static/media/cs2banner.png": "/knifexdb/static/media/cs2banner.bdd84ca4e92329817248.png",
@@ -315,11 +315,11 @@
     "static/media/gutknif.png": "/knifexdb/static/media/gutknif.0c9f28ffc6bdbfdc3344.png",
     "static/media/bowieknife-autotronic.png": "/knifexdb/static/media/bowieknife-autotronic.31fa13df83b01eadc8df.png",
     "index.html": "/knifexdb/index.html",
-    "main.1eeef87a.css.map": "/knifexdb/static/css/main.1eeef87a.css.map",
-    "main.87f2a934.js.map": "/knifexdb/static/js/main.87f2a934.js.map"
+    "main.ec0c26c5.css.map": "/knifexdb/static/css/main.ec0c26c5.css.map",
+    "main.cc805ff1.js.map": "/knifexdb/static/js/main.cc805ff1.js.map"
   },
   "entrypoints": [
-    "static/css/main.1eeef87a.css",
-    "static/js/main.87f2a934.js"
+    "static/css/main.ec0c26c5.css",
+    "static/js/main.cc805ff1.js"
   ]
 }
